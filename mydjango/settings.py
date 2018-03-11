@@ -25,7 +25,7 @@ SECRET_KEY = '4-u4o0y1rqv0fc4925(2tpsx98^hz**e51ql7_!#$42bl-(@^&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['gangler.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
