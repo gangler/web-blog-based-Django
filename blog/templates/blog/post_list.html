@@ -1,41 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My Django Title</title>
-</head>
-<body>
-    <!--<p>Hi,How are you?</p>-->
-    <!--<p>I'm Here</p>-->
-    <!--<p>It works</p>-->
-    <div>
-        <h1><a href="">My Django Blog</a></h1>
-    </div>
+{% extends 'blog/base.html' %}
 
-
+{% block content %}
     {% for post in posts %}
-        <div>
-            <p>published:{{ post.published_date }}</p>
-            <h2><a href="">{{ post.title }}</a></h2>
+        <div class="post">
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <P>{{ post.text|linebreaksbr }}</P>
         </div>
     {% endfor %}
-
-    <!--{{posts}}-->
-
-    <!--<div>-->
-        <!--<h2><a href="">My First Post</a></h2>-->
-        <!--<p>第一个 div 元素包含我们的博客的标题 — — 这是一个标题和链接-->
-            <!--另两个 div 元素包含我们博客文章发表的日期，h2 是可点击文章标题-->
-            <!--和两个 p （段落） 的文本、 日期和我们的博客。</p>-->
-        <!--<p>published:2018/3/12 21:49</p>-->
-    <!--</div>-->
-
-    <!--<div>-->
-        <!--<h2><a href="">My Second Post</a></h2>-->
-        <!--<p>哈哈哈。。。</p>-->
-        <!--<p>published:2018/3/12 21:50</p>-->
-    <!--</div>-->
-
-</body>
-</html>
+{% endblock %}
