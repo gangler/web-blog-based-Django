@@ -19,4 +19,18 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+class RePost(models.Model):
+    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    text = models.TextField()
+    create_date = models.DateTimeField(
+        default=timezone.now
+    )
+    published_date = models.DateTimeField(
+        blank=True, null=True
+    )
+
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()
 

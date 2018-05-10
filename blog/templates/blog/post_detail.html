@@ -7,9 +7,30 @@
                 {{ post.published_date }}
             </div>
         {% endif %}
-        <a class="btn btn-edit" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-        <a id="a-delete" class="btn btn-delete" onclick="delete_click()"><span class="glyphicon glyphicon-trash"></span></a>
+        {% ifequal user post.author %}
+            <a class="btn btn-edit" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil">修改</span></a>
+            <a id="a-delete" class="btn btn-delete" onclick="delete_click()"><span class="glyphicon glyphicon-trash">删除</span></a>
+        {% endifequal %}
         <h1>{{ post.title }}</h1>
+        <span class="glyphicon glyphicon-user"> {{post.author}}</span>
         <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+    <br>
+    <a href="{% url 'post_reply' pk=post.pk %}">留言回复</a>
+    <div>
+        <h2>留言列表</h2>
+        {% for p in repost %}
+            <div class="post">
+            {% if p.published_date %}
+                <div class="date">
+                    {{ p.published_date }}
+                </div>
+            {% endif %}
+                <div>
+                    <span class="glyphicon glyphicon-user"> {{p.author}}</span>
+                    <p>{{ p.text|linebreaksbr }}</p>
+                </div>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}

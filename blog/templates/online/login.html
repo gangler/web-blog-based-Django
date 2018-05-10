@@ -1,10 +1,27 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>登陆</title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/online.css' %}">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/online.js' %}"></script>
 </head>
 <body>
-$END$
+    <div class="login-style">
+        <h1>登 陆 页 面</h1>
+        <br>
+        <form method = 'post' action="{% url 'login' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value = "登陆" class="btn"/>
+        </form>
+        <br>
+        <a href="{% url 'regist' %}">没有账号，去注册</a>
+    </div>
 </body>
 </html>

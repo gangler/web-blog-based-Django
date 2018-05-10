@@ -1,10 +1,14 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <h1>New post</h1>
+    <h1>新建帖子</h1>
     <form method="POST" class="post—form">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
+        {{ form.as_p }}<!-- "Returns this form rendered as HTML <p>s." -->
+        <button type="button" id="button-check" class="check btn btn-default" onclick="cclick()">审核</button>
+        <button type="submit" id="button-save" class="save btn btn-default">发布</button>
+        <!--<div>-->
+            <!--<span id="sss">aaaaaaa</span>-->
+        <!--</div>-->
     </form>
 {% endblock %}

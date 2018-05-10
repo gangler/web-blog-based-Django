@@ -3,22 +3,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Django Title</title>
+    <title>My Django Blog</title>
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="{% static 'js/blog.js' %}"></script>
 </head>
 <body>
 
     <div class="page-header">
         {% if user.is_authenticated %}
-            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            <div class="top-menu">
+                <span class="glyphicon glyphicon-user">{{request.user}},欢迎您</span>
+                <a href="{% url 'logout' %}"><span class="glyphicon glyphicon-off">退出</span></a>
+            </div>
         {% endif %}
-        <h1><a href="{% url 'post_list' %}">My Django Blog</a></h1>
+        <h1><a href="{% url 'post_list' %}">论坛网站</a></h1>
     </div>
-
+    {% block title %}
+    {% endblock %}
     <div class="content container">
         <div class="row">
             <div class="col-md-8">

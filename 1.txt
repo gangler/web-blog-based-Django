@@ -1,0 +1,1 @@
+<QueryDict: {'csrfmiddlewaretoken': ['7ZyA7D0j0pfYInBGVMwABYHHc4XEqh0x5ZQJaO04jC3P5nVNxMtsXe3QqZyU8lVJ'], 'text': ['sdmfaln %w 回来了吗'], 'title': ['获取信息']}><QueryDict: {'csrfmiddlewaretoken': ['NZECH2m71VMRjimifQxgVNOHgA9ICzV25HodTic03snrQkiqnJG0Yw6nW3rpiQi5'], 'text': ['哈哈哈哈'], 'title': ['嚯嚯嚯嚯']}>

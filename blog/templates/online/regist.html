@@ -1,10 +1,25 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>注册</title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/online.css' %}">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/online.js' %}"></script>
 </head>
 <body>
-$END$
+    <div class="login-style">
+        <h1>注 册 页 面</h1>
+        <form method = 'post' action="{% url 'regist' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value = "注册" class="btn"/>
+        </form>
+        <a href="{% url 'login' %}">已注册，去登陆</a>
+    </div>
 </body>
 </html>
